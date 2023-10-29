@@ -1,0 +1,86 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+{% block content %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        section {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-size: 24px;
+        }
+        ul, ol {
+            list-style: none;
+            padding: 0;
+        }
+        ul li::before {
+            content: "•";
+            margin-right: 10px;
+            color: #007BFF;
+        }
+        ol li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в Систему Управления Отпусками!</h1>
+    </header>
+    <section>
+        <h2>Наши преимущества:</h2>
+        <ul>
+            <li>Простота и Удобство</li>
+            <li>Гибкость и Настраиваемость</li>
+            <li>Уведомления и Согласование</li>
+            <li>Аналитика и Отчеты</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Как это работает:</h2>
+        <ol>
+            <li>Зарегистрируйтесь</li>
+            <li>Подайте Заявление</li>
+            <li>Согласование</li>
+            <li>Отслеживание и Управление</li>
+        </ol>
+    </section>
+    <footer>
+        <p>Позвольте нам сделать процесс подачи заявлений на отпуск быстрым и удобным. Присоединяйтесь к нам сегодня и начните автоматизацию управления вашими отпусками.</p>
+    </footer>
+</body>
+{% endblock %}
+{% block wapka %}
+{% if user.is_authenticated %}
+<li class="nav-item" style="margin-right: 10px;"><a href="{% url 'cabinet' %}" class="nav-link active" aria-current="page">Личный кабинет</a></li>
+<li class="nav-item" style="margin-right: 10px;"><a href="{% url 'logout' %}" class="nav-link active" aria-current="page">Выйти</a></li>
+{% else %}
+<li class="nav-item" style="margin-right: 10px;"><a href="{% url 'authentication' %}" class="nav-link active" aria-current="page">Войти</a></li>
+<li class="nav-item" style="margin-right: 10px;"><a href="{% url 'registration' %}" class="nav-link active" aria-current="page">Регистрация</a></li>
+{% endif %}
+{% endblock %}

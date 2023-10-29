@@ -1,0 +1,19 @@
+body {
+    background-image: url('background.jpg'); /* Замените 'путь_к_изображению.jpg' на путь к вашему фоновому изображению */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+.header {
+    position: relative;
+    background-color: rgba(000, 000, 000, 0.7); /* Прозрачный белый фон (здесь 0.7 задает прозрачность) */
+    z-index: 1; /* Устанавливаем на передний план */
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+

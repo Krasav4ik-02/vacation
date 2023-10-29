@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+{% block title %}Авторизация{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h2>Авторизация</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.username.label_tag }} {{ form.username }}
+    <br>
+    {{ form.username.errors }}  <!-- Ошибки для поля 'username' -->
+
+    <div class="form-group">
+    {{ form.password.label_tag }}
+    {{ form.password }}
+    </div>
+    <br>
+    {{ form.password.errors }}
+
+    {% if form.errors %}
+    <div class="alert alert-danger">
+      <strong>Ошибка!</strong> Неверный логин или пароль
+    </div>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">Войти</button>
+  </form>
+</div>
+{% endblock %}

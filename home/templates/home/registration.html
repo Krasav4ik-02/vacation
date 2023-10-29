@@ -1,0 +1,37 @@
+{% extends 'home/base.html' %}
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h2>Регистрация</h2>
+  <form method="post">
+    {% csrf_token %}
+
+    {{ form.username.label_tag }} {{ form.username }}
+    <br>
+    {{ form.username.errors }}  <!-- Ошибки для поля 'username' -->
+
+    {{ form.first_name.label_tag }} {{ form.first_name }}
+    <br>
+    {{ form.first_name.errors }}
+
+    {{ form.last_name.label_tag }} {{ form.last_name }}
+    <br>
+    {{form.last_name.errors}}
+
+    <div class="form-group">
+    {{ form.password1.label_tag }}
+    <input type="password" name="{{ form.password1.name }}" class="form-control" style="width: 200px">
+    </div>
+    <br>
+
+    <div class="form-group">
+    {{ form.password2.label_tag }}
+    <input type="password" name="{{ form.password2.name }}" class="form-control" style="width: 200px">
+    </div>
+    <br>
+    {{ form.password2.errors }}  <!-- Ошибки для поля 'password2' -->
+    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+  </form>
+</div>
+{% endblock %}
